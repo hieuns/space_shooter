@@ -9,10 +9,11 @@ var velocity = Vector2()
 func _process(delta):
   position += velocity * delta
 
-func start(_position, _direction):
+func start(_position, _direction, z_index):
   position = _position
   rotation = _direction.angle() - ORIGINAL_ANGLE
   velocity = _direction * SPEED
+  $Sprite.z_index = z_index
 
 func _on_Visibility_screen_exited():
   queue_free()

@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 49.6912, 37.7498 )
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -33,5 +33,14 @@ shape = SubResource( 1 )
 [node name="FirePosition" type="Position2D" parent="." index="2"]
 
 position = Vector2( 0, -37 )
+
+[node name="ShootCooldown" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_ShootCooldown_timeout"]
 
 

@@ -6,6 +6,7 @@ const SPEED = 400
 
 var Bullet = preload("res://Bullet.tscn")
 var screensize
+var can_shoot = true
 
 func _ready():
   # Called when the node is added to the scene for the first time.
@@ -35,6 +36,16 @@ func _process(delta):
   position.x = clamp(position.x, 0, screensize.x)
   position.y = clamp(position.y, 0, screensize.y)
 
+func setZIndex(z_index):
+  $Sprite.z_index = z_index
+
 func shoot():
-  var _direction = Vector2(0, -1)
-  emit_signal("shoot", Bullet, $FirePosition.global_position, _direction)
+  if can_shoot:
+    can_shoot = false
+    $ShootCooldown.start()
+
+    var _direction = Vector2(0, -1)
+    emit_signal("shoot", Bullet, $FirePosition.global_position, _direction)
+
+func _on_ShootCooldown_timeout():
+  can_shoot = true
