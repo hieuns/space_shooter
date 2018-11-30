@@ -1,7 +1,10 @@
 extends Area2D
 
+signal shoot(Bullet, _position, _direction)
+
 const SPEED = 400
 
+var Bullet = preload("res://Bullet.tscn")
 var screensize
 
 func _ready():
@@ -22,6 +25,8 @@ func _process(delta):
     velocity.x -= 1
   if Input.is_action_pressed("move_right"):
     velocity.x += 1
+  if Input.is_action_pressed("shoot"):
+    shoot()
 
   if velocity.length() > 0:
     velocity = velocity.normalized() * SPEED
@@ -29,3 +34,7 @@ func _process(delta):
 
   position.x = clamp(position.x, 0, screensize.x)
   position.y = clamp(position.y, 0, screensize.y)
+
+func shoot():
+  var _direction = Vector2(0, -1)
+  emit_signal("shoot", Bullet, $FirePosition.global_position, _direction)
