@@ -8,8 +8,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 49.6912, 37.7498 )
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
+z_index = 1
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
