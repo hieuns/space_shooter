@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Bullet.gd" type="Script" id=1]
+[ext_resource path="res://PlayerBullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/laserGreen05.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 4.52591
 height = 28.6375
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
