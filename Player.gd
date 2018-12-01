@@ -49,3 +49,6 @@ func shoot():
 
 func _on_ShootCooldown_timeout():
   can_shoot = true
+
+func _on_Player_area_entered(area):
+  queue_free()
