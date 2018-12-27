@@ -3,7 +3,7 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/playerShip1_orange.png" type="Texture" id=2]
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 z_index = 1
 input_pickable = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SpawnManager.gd" type="Script" id=1]
+
+[node name="SpawnManager" type="Node"]
+
+script = ExtResource( 1 )
+spawn_interval = 0.5
+enemy_speed = 200
+
+[node name="SpawnTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+
+

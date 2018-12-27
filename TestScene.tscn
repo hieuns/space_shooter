@@ -2,9 +2,9 @@
 
 [ext_resource path="res://TestScene.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://BlackEnemy1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SpawnManager.tscn" type="PackedScene" id=3]
 
-[node name="TestScene" type="Node2D"]
+[node name="TestScene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -13,9 +13,10 @@ script = ExtResource( 1 )
 position = Vector2( 683, 700 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="BlackEnemy1" parent="." index="1" instance=ExtResource( 3 )]
+[node name="SpawnManager" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 680.167, 61.3869 )
+spawn_interval = 1.0
+enemy_speed = 50
 
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
 
