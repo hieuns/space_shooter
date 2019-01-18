@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://PlayerBullet.gd" type="Script" id=1]
-[ext_resource path="res://assets/laserGreen05.png" type="Texture" id=2]
+[ext_resource path="res://assets/ships.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 4.52591
-height = 28.6375
+radius = 10.6532
+height = 24.1621
 
 [node name="Bullet" type="Area2D"]
 
@@ -25,7 +25,11 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 316, 412, 35, 71 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

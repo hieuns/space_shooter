@@ -1,18 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/playerShip1_damage3.png" type="Texture" id=2]
-[ext_resource path="res://assets/playerShip1_damage2.png" type="Texture" id=3]
-[ext_resource path="res://assets/playerShip1_damage1.png" type="Texture" id=4]
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), null ],
-"loop": false,
-"name": "explode",
-"speed": 5.0
-} ]
 
 [node name="Enemy" type="Area2D"]
 
@@ -34,11 +22,5 @@ _sections_unfolded = [ "Collision" ]
 
 build_mode = 0
 polygon = PoolVector2Array(  )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
-
-visible = false
-frames = SubResource( 1 )
-animation = "explode"
 
 

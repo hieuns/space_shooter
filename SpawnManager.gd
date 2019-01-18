@@ -31,7 +31,7 @@ func spawn(_num_of_enemies = DEFAULT_NUM_OF_ENEMIES):
 func _on_SpawnTimer_timeout():
   current_enemy_class = _random_enemy_class()
   var enemy = current_enemy_class.instance()
-  enemy.start(current_spawn_point["position"], current_spawn_point["direction"], enemy_speed)
+  enemy.start(spawning_scene, current_spawn_point["position"], current_spawn_point["direction"], enemy_speed)
   spawning_scene.add_child(enemy)
   spawned_enemies_count += 1
 

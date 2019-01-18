@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/playerShip1_orange.png" type="Texture" id=2]
+[ext_resource path="res://assets/ships.png" type="Texture" id=2]
 
 [node name="Player" type="Area2D"]
 
@@ -22,16 +22,21 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 60, 314, 136, 141 )
+_sections_unfolded = [ "Region", "Transform" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+[node name="FirePosition1" type="Position2D" parent="." index="1"]
 
-build_mode = 0
-polygon = PoolVector2Array( -8.17716, -37.3851, 8.36133, -37.5945, 12.8623, -11.8447, 35.5766, 1.44893, 39.6588, -0.539871, 43.9505, -6.71564, 48.6608, -6.71564, 49.9169, -5.6689, 46.8814, 25.1053, 44.7879, 26.152, 42.5897, 25.0006, 41.1243, 21.5463, 35.9953, 23.9538, 14.1184, 28.0361, 7.94263, 37.8755, -7.44444, 37.7708, -14.0389, 28.0361, -36.7532, 23.6398, -40.8354, 20.7089, -42.4055, 24.7912, -44.2897, 25.4193, -46.4878, 24.7912, -49.9421, -5.2502, -47.9533, -6.71564, -43.9757, -6.50629, -39.5794, -0.539871, -36.1251, 1.65828, -12.0501, -12.1587 )
+position = Vector2( -33.8309, -12.237 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="FirePosition" type="Position2D" parent="." index="2"]
+[node name="FirePosition2" type="Position2D" parent="." index="2"]
 
-position = Vector2( 0, -37 )
+position = Vector2( 33.8244, -11.9454 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="ShootCooldown" type="Timer" parent="." index="3"]
 
@@ -39,6 +44,11 @@ process_mode = 1
 wait_time = 0.3
 one_shot = false
 autostart = false
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="4"]
+
+build_mode = 0
+polygon = PoolVector2Array( -2.65173, -45.3376, 2.48875, -45.3376, 5.95859, -41.6108, 5.95859, -31.0728, 8.91437, -25.5467, 8.78586, -16.0368, 13.6693, -9.61121, 14.8259, 1.56935, 24.4644, 1.82637, 27.5487, -5.62733, 27.6772, -14.8802, 31.0185, -18.8641, 34.2313, -20.0207, 36.93, -18.4786, 39.6288, -14.2377, 39.6288, -5.37031, 45.1548, 5.93877, 45.2833, 20.4607, 39.3718, 25.8582, 28.1912, 25.8582, 21.7656, 19.047, 16.8821, 24.4445, 22.5367, 29.7135, 22.5367, 35.2396, 18.0387, 39.352, 14.5689, 39.609, 8.91437, 36.7817, 8.78586, 47.8338, -8.82032, 47.7053, -8.82032, 36.7817, -14.3463, 39.2234, -19.2298, 38.8379, -22.6996, 35.2396, -22.8282, 29.585, -17.3021, 24.8301, -21.9286, 19.304, -27.9687, 25.3441, -39.5348, 25.3441, -45.0608, 20.5892, -45.0608, 4.78216, -39.4062, -5.88436, -39.5348, -15.2658, -36.836, -18.6071, -33.6232, -19.7637, -30.1534, -18.35, -27.7116, -15.0087, -27.7116, -5.2418, -24.2418, 1.82637, -14.6034, 2.0834, -13.8323, -9.4827, -9.20586, -16.2939, -9.07735, -25.8038, -6.12157, -31.2013, -5.73603, -41.6108 )
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 

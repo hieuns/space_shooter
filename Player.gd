@@ -45,7 +45,8 @@ func shoot():
     $ShootCooldown.start()
 
     var _direction = Vector2(0, -1)
-    emit_signal("shoot", Bullet, $FirePosition.global_position, _direction)
+    emit_signal("shoot", Bullet, $FirePosition1.global_position, _direction)
+    emit_signal("shoot", Bullet, $FirePosition2.global_position, _direction)
 
 func _on_ShootCooldown_timeout():
   can_shoot = true
