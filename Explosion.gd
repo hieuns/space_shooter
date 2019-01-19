@@ -1,6 +1,6 @@
 extends Sprite
 
-func start(_position):
+func init(_position):
   position = _position
   $AnimationPlayer.play("explosion")
 

@@ -9,14 +9,17 @@ func _ready():
     {position = Vector2(0, 0), direction = Vector2(4, 1)},
     {position = Vector2(screensize.x, 0), direction = Vector2(-4, 1)}
   ]
-  $SpawnManager.init(self, [BlackEnemy1], spawning_points)
+  $EnemyManager.init(self, [BlackEnemy1], spawning_points)
 
 func _process(delta):
   if !enemies_spawned:
-    $SpawnManager.spawn(10)
+    $EnemyManager.spawn(10)
     enemies_spawned = true
 
 func _on_Player_shoot(Bullet, _position, _direction):
   var bullet_instance = Bullet.instance()
   add_child(bullet_instance)
   bullet_instance.start(_position, _direction)
+
+func _on_EnemyManager_enemy_destroyed(_explosion):
+  add_child(_explosion)

@@ -7,21 +7,21 @@ const DEFAULT_MOVEMENT_SPEED = 200
 var Explosion = preload("res://Explosion.tscn")
 
 var velocity = Vector2()
-var spawning_scene
+var manager
 var isDead = false
 
 func _process(delta):
   position += velocity * delta
 
-func start(_spawning_scene, _position, _direction, speed):
-  spawning_scene = _spawning_scene
+func init(_manager, _position, _direction, speed):
+  manager = _manager
   position = _position
   velocity = _direction * speed
 
 func _show_explosion():
   var explosion = Explosion.instance()
-  explosion.start(position)
-  spawning_scene.add_child(explosion)
+  explosion.init(position)
+  manager.emit_destroy_signal(explosion)
 
 func explode():
   isDead = true
