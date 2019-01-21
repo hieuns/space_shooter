@@ -2,7 +2,7 @@ extends Area2D
 
 signal shoot(Bullet, _position, _direction)
 
-const SPEED = 400
+const SPEED = 300
 
 var Bullet = preload("res://PlayerBullet.tscn")
 var screensize

@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 400
+const SPEED = 600
 # original angle of bullet sprite: Vector2(0, -1)
 const ORIGINAL_ANGLE = deg2rad(-90)
 
