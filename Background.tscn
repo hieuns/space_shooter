@@ -25,15 +25,12 @@ scroll_ignore_camera_zoom = true
 
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 768 )
+motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
 texture = ExtResource( 2 )
 centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 1366, 768 )
-_sections_unfolded = [ "Region" ]
 
 

@@ -11,6 +11,10 @@ func _ready():
   ]
   $EnemyManager.init(self, [BlackEnemy1], spawning_points)
 
+  $Player.position = Vector2(screensize.x / 2, screensize.y - 50)
+
+  $Background.init(screensize)
+
 func _process(delta):
   if !enemies_spawned:
     $EnemyManager.spawn(10)
