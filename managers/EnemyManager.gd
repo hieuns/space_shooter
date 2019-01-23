@@ -1,7 +1,5 @@
 extends Node
 
-signal enemy_destroyed(_explosion)
-
 const DEFAULT_NUM_OF_ENEMIES = 10
 
 var spawning_scene
@@ -24,25 +22,27 @@ func init(_spawning_scene, _enemy_classes, _spawning_points):
 
   randomize()
 
-func spawn(_num_of_enemies = DEFAULT_NUM_OF_ENEMIES):
+func spawn_enemies(_num_of_enemies = DEFAULT_NUM_OF_ENEMIES):
   num_of_enemies = _num_of_enemies
   current_enemy_class = _random_enemy_class()
   current_spawn_point = _random_spawn_point()
   $SpawnTimer.start()
 
-func emit_destroy_signal(explosion):
-  emit_signal("enemy_destroyed", explosion)
-
 func _on_SpawnTimer_timeout():
-  current_enemy_class = _random_enemy_class()
-  var enemy = current_enemy_class.instance()
-  enemy.init(self, current_spawn_point["position"], current_spawn_point["direction"], enemy_speed)
-  spawning_scene.add_child(enemy)
-  spawned_enemies_count += 1
+  _spawn_enemy()
 
   if spawned_enemies_count == num_of_enemies:
     spawned_enemies_count = 0
     $SpawnTimer.stop()
+
+func _spawn_enemy():
+  var enemy = current_enemy_class.instance()
+
+  enemy.init(current_spawn_point["position"], current_spawn_point["direction"], enemy_speed)
+  enemy.connect("explode", spawning_scene, "_on_Enemy_explode")
+  spawning_scene.add_child(enemy)
+
+  spawned_enemies_count += 1
 
 func _random_enemy_class():
   return enemy_classes[randi() % enemy_classes.size()]

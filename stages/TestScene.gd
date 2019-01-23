@@ -17,7 +17,7 @@ func _ready():
 
 func _process(delta):
   if !enemies_spawned:
-    $EnemyManager.spawn(10)
+    $EnemyManager.spawn_enemies(10)
     enemies_spawned = true
 
 func _on_Player_shoot(Bullet, _position, _direction):
@@ -25,5 +25,5 @@ func _on_Player_shoot(Bullet, _position, _direction):
   add_child(bullet_instance)
   bullet_instance.start(_position, _direction)
 
-func _on_EnemyManager_enemy_destroyed(_explosion):
+func _on_Enemy_explode(_explosion):
   add_child(_explosion)

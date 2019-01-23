@@ -5,7 +5,7 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://managers/EnemyManager.tscn" type="PackedScene" id=4]
 
-[node name="TestScene" type="Node2D" index="0"]
+[node name="TestScene" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -21,7 +21,5 @@ spawn_interval = 1.0
 enemy_speed = 50
 
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
-
-[connection signal="enemy_destroyed" from="EnemyManager" to="." method="_on_EnemyManager_enemy_destroyed"]
 
 

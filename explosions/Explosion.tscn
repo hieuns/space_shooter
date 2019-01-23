@@ -3,7 +3,6 @@
 [ext_resource path="res://assets/explosion1.png" type="Texture" id=1]
 [ext_resource path="res://explosions/Explosion.gd" type="Script" id=2]
 
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "explosion"
@@ -23,7 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 63 ]
 }
 
-[node name="Explosion" type="Sprite" index="0"]
+[node name="Explosion" type="Sprite"]
 
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
