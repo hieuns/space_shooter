@@ -4,7 +4,7 @@ signal shoot(Bullet, _position, _direction)
 
 const SPEED = 300
 
-var Bullet = preload("res://PlayerBullet.tscn")
+var Bullet = preload("res://bullets/PlayerBullet.tscn")
 var screensize
 var can_shoot = true
 

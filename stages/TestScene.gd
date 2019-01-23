@@ -1,6 +1,6 @@
 extends Node2D
 
-var BlackEnemy1 = preload("res://BlackEnemy1.tscn")
+var BlackEnemy1 = preload("res://enemies/BlackEnemy1.tscn")
 var enemies_spawned = false
 
 func _ready():

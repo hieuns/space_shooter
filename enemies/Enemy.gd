@@ -4,7 +4,7 @@ signal explode(_position)
 
 const DEFAULT_MOVEMENT_SPEED = 200
 
-var Explosion = preload("res://Explosion.tscn")
+var Explosion = preload("res://explosions/Explosion.tscn")
 
 var velocity = Vector2()
 var manager

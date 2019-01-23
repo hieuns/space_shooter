@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://TestScene.gd" type="Script" id=1]
-[ext_resource path="res://Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://EnemyManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://stages/TestScene.gd" type="Script" id=1]
+[ext_resource path="res://ui/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://managers/EnemyManager.tscn" type="PackedScene" id=4]
 
-[node name="TestScene" type="Node2D"]
+[node name="TestScene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
