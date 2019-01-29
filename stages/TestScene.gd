@@ -1,6 +1,7 @@
 extends Node2D
 
-var BlackEnemy1 = preload("res://enemies/BlackEnemy1.tscn")
+var RedEnemy = preload("res://enemies/RedEnemy.tscn")
+
 var enemies_spawned = false
 
 func _ready():
@@ -9,7 +10,7 @@ func _ready():
     {position = Vector2(0, 0), direction = Vector2(4, 1)},
     {position = Vector2(screensize.x, 0), direction = Vector2(-4, 1)}
   ]
-  $EnemyManager.init(self, [BlackEnemy1], spawning_points)
+  $EnemyManager.init(self, [RedEnemy], spawning_points)
 
   $Player.position = Vector2(screensize.x / 2, screensize.y - 50)
 

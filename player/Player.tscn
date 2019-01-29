@@ -3,7 +3,7 @@
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/ships.png" type="Texture" id=2]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 z_index = 1
 input_pickable = true
@@ -26,7 +26,7 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 60, 314, 136, 141 )
-_sections_unfolded = [ "Region", "Transform" ]
+_sections_unfolded = [ "Region" ]
 
 [node name="FirePosition1" type="Position2D" parent="." index="1"]
 
