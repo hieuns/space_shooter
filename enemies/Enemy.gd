@@ -6,15 +6,22 @@ const DEFAULT_MOVEMENT_SPEED = 200
 
 var Explosion = preload("res://explosions/Explosion.tscn")
 
-var velocity = Vector2()
+var movement_position
+var speed = DEFAULT_MOVEMENT_SPEED
 var isDead = false
 
-func _process(delta):
-  position += velocity * delta
+func init(_spawning_path, _speed):
+  movement_position = PathFollow2D.new()
+  movement_position.loop = false
+  _spawning_path.add_child(movement_position)
 
-func init(_position, _direction, speed):
-  position = _position
-  velocity = _direction * speed
+  speed = _speed
+
+func _process(delta):
+  movement_position.offset += speed * delta
+  position = movement_position.global_position
+  if movement_position.unit_offset > 1:
+    queue_free()
 
 func explode():
   isDead = true
