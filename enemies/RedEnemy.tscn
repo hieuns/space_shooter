@@ -5,7 +5,8 @@
 
 [node name="RedEnemy" instance=ExtResource( 1 )]
 
-deg_sprite_rotation = 90
+sprite_rotation_degrees = -90
+desire_rotation_degrees = 90
 
 [node name="Sprite" parent="." index="0"]
 

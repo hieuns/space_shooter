@@ -2,7 +2,8 @@ extends Area2D
 
 signal explode(_explosion)
 
-export var deg_sprite_rotation = 90;
+export var sprite_rotation_degrees = -90;
+export var desire_rotation_degrees = 90;
 
 const DEFAULT_MOVEMENT_SPEED = 200
 
@@ -18,20 +19,22 @@ func init(_movement_path, _speed):
   movement_position.loop = false
   _movement_path.add_child(movement_position)
 
-  if _movement_path.is_object_rotate_along_path():
-    movement_position.rotate = true
+  if _movement_path.should_rotate_object:
     should_rotate_along_path = true
   else:
-    rotation = deg_sprite_rotation
+    rotation = deg2rad(desire_rotation_degrees - sprite_rotation_degrees)
 
-  speed = _speed
+  if _movement_path.object_speed != 0:
+    speed = _movement_path.object_speed
+  else:
+    speed = _speed
 
 func _process(delta):
   movement_position.offset += speed * delta
   position = movement_position.global_position
 
   if should_rotate_along_path:
-    rotation = deg2rad(deg_sprite_rotation) + movement_position.rotation
+    rotation = movement_position.rotation - deg2rad(sprite_rotation_degrees)
 
   if movement_position.unit_offset > 1:
     queue_free()

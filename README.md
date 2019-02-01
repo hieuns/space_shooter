@@ -3,6 +3,8 @@
   - When you define an inherited scene which inherites a scene extends the Area2D or KinematicBody2D, the parent scene **must** have a collision node, otherwise you can't call user-defined methods of that scene's script. In the inherite scene, define a shape for that collision node.
   - The Timer must be added into scene to be able to work.
   - Create an infinite background: See [this](https://github.com/hieuns/space_shooter#infinite-background).
+  - If the pointing direction of `Sprite` A is not the same as the positve direction of x-axis (the angle between them is `angle` in radiant), then when assign value to `rotation` attribute of A, you should consider to subtract `angle` to get the desired `rotation` value.
+  - You can set the `rotation` attribute of `Node2D` (or its child class) object A with value of `rotation` attribute of `PathFollow2D` object B, which belongs to a `Path2D`, to rotate A when `Path2D` changes its direction (notice the note about pointing direction of `Sprite` above).
 
 ## Infinite background
 This is an instruction on how to create a background scrolling downward infinitely.

@@ -2,11 +2,11 @@
 
 [ext_resource path="res://managers/EnemyManager.gd" type="Script" id=1]
 
-[node name="EnemyManager" type="Node" index="0"]
+[node name="EnemyManager" type="Node"]
 
 script = ExtResource( 1 )
-spawn_interval = 0.5
 enemy_speed = 200
+enemies_distance = 200
 
 [node name="SpawnTimer" type="Timer" parent="." index="0"]
 
