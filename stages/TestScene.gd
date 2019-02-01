@@ -7,7 +7,7 @@ var enemies_spawned = false
 func _ready():
   var screensize = get_viewport().size
 
-  $EnemyManager.init(self, [RedEnemy], [$Path1])
+  $EnemyManager.init(self, [RedEnemy], $EnemyMovementPaths.get_children())
 
   $Player.position = Vector2(screensize.x / 2, screensize.y - 50)
 

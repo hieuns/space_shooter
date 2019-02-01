@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://stages/TestScene.gd" type="Script" id=1]
 [ext_resource path="res://ui/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://managers/EnemyManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemy_movement_paths/Path1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemy_movement_paths/Path2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemy_movement_paths/Path3.tscn" type="PackedScene" id=7]
 
-[node name="TestScene" type="Node2D"]
+[node name="TestScene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -18,7 +20,13 @@ script = ExtResource( 1 )
 
 spawn_interval = 1.0
 
-[node name="Path1" parent="." index="3" instance=ExtResource( 5 )]
+[node name="EnemyMovementPaths" type="Node" parent="." index="3"]
+
+[node name="Path1" parent="EnemyMovementPaths" index="0" instance=ExtResource( 5 )]
+
+[node name="Path2" parent="EnemyMovementPaths" index="1" instance=ExtResource( 6 )]
+
+[node name="Path3" parent="EnemyMovementPaths" index="2" instance=ExtResource( 7 )]
 
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
 

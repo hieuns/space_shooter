@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemy_movement_paths/BasePath.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1155.79, -0.146782, 0, 0, -44.8499, 22.6951, -71.4713, 81.6427, 0, 0, 0, 0, -72.8317, 126.535, 0, 0, 36.7445, 22.6951, 1248.36, 206.74, 0, 0, 0, 0, 1248.36, 253.211, 0, 0, 0, 0, -70.1109, 370.042 )
+}
+
+[node name="Path2" index="0" instance=ExtResource( 1 )]
+
+curve = SubResource( 1 )
+
+
