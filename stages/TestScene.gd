@@ -9,7 +9,7 @@ func _ready():
 
   $EnemyManager.init(self, [RedEnemy], $EnemyMovementPaths.get_children())
 
-  $Player.position = Vector2(screensize.x / 2, screensize.y - 50)
+  $Player.init(Vector2(screensize.x / 2, screensize.y - 50))
 
   $Background.init(screensize)
 

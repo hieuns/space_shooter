@@ -1,7 +1,6 @@
 extends Area2D
 
-const SPEED = 600
-const SPRITE_ROTATION_DEGREES = -90
+const DEFAULT_MOVEMENT_SPEED = 600
 
 var velocity = Vector2()
 
@@ -10,8 +9,8 @@ func _process(delta):
 
 func start(_position, _direction):
   position = _position
-  rotation = _direction.angle() - deg2rad(SPRITE_ROTATION_DEGREES)
-  velocity = _direction * SPEED
+  rotation = _direction.angle()
+  velocity = _direction * DEFAULT_MOVEMENT_SPEED
 
 func _on_Visibility_screen_exited():
   queue_free()

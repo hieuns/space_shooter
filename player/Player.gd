@@ -3,6 +3,7 @@ extends Area2D
 signal explode(_explosion)
 signal shoot(_bullet)
 
+const DESIRED_ROTATION_DEGREES = -90
 const SPEED = 300
 
 var Explosion = preload("res://explosions/Explosion.tscn")
@@ -11,6 +12,10 @@ var Bullet = preload("res://bullets/PlayerBullet.tscn")
 var screensize
 var is_gun_on_cooldown = false
 var is_dead = false
+
+func init(_position):
+  position = _position
+  rotation = deg2rad(DESIRED_ROTATION_DEGREES)
 
 func _ready():
   screensize = get_viewport().size

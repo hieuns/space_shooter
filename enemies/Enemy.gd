@@ -6,8 +6,7 @@ signal shoot(_bullet)
 export var desire_rotation_degrees = 90
 export var can_shoot = false
 
-const SPRITE_ROTATION_DEGREES = -90
-const SPRITE_ROTATION_VECTOR = Vector2(0, -1)
+const DEFAULT_ROTATION_VECTOR = Vector2(1, 0)
 const DEFAULT_MOVEMENT_SPEED = 200
 const LIMITED_FACING_ANGLE_DEGREES = 3
 
@@ -29,7 +28,7 @@ func init(_movement_path, _speed, _target):
   if _movement_path.should_rotate_object:
     should_rotate_along_path = true
   else:
-    rotation = deg2rad(desire_rotation_degrees - SPRITE_ROTATION_DEGREES)
+    rotation = deg2rad(desire_rotation_degrees)
 
   speed = _movement_path.object_speed if _movement_path.object_speed != 0 else _speed
 
@@ -40,7 +39,7 @@ func _process(delta):
   position = movement_position.global_position
 
   if should_rotate_along_path:
-    rotation = movement_position.rotation - deg2rad(SPRITE_ROTATION_DEGREES)
+    rotation = movement_position.rotation
 
   if _able_to_shoot():
     _shoot()
@@ -66,7 +65,7 @@ func _is_target_exist():
   return target_reference and target_reference.get_ref()
 
 func _is_facing_target():
-  var facing_direction = SPRITE_ROTATION_VECTOR.rotated(rotation)
+  var facing_direction = DEFAULT_ROTATION_VECTOR.rotated(rotation)
   var direction_to_target = _normalized_direction_to_target()
   return facing_direction.dot(direction_to_target) >= cos(deg2rad(LIMITED_FACING_ANGLE_DEGREES))
 

@@ -17,7 +17,10 @@ script = ExtResource( 1 )
 
 _sections_unfolded = [ "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="Collision" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array(  )
 
 [node name="Visibility" type="VisibilityNotifier2D" parent="." index="2"]
 

@@ -1,15 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://bullets/Bullet.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/ships.png" type="Texture" id=2]
+[ext_resource path="res://assets/ships_and_bullets.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.2855
-height = 25.153
-
-[node name="PlayerBullet" index="0" instance=ExtResource( 1 )]
+[node name="PlayerBullet" instance=ExtResource( 1 )]
 
 collision_layer = 4
 collision_mask = 2
@@ -20,11 +14,11 @@ _sections_unfolded = [ "Collision" ]
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 319.247, 414.676, 30, 66.5 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+region_rect = Rect2( 2847, 319, 66, 30 )
+_sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="Collision" parent="." index="1"]
 
-shape = SubResource( 1 )
+polygon = PoolVector2Array( -22.217, -1.404, -14.6436, -4.55958, -4.23021, -7.08405, 0.66095, -10.3974, 15.9655, -10.3974, 22.75, -4.4018, 22.75, 3.64494, 16.4389, 9.95611, 0.66095, 9.95611, -3.91465, 7.58942, -15.2748, 4.59161, -22.2924, 1.04119 )
 
 
