@@ -18,10 +18,17 @@ func _process(delta):
     $EnemyManager.spawn_enemies(10)
     enemies_spawned = true
 
-func _on_Player_shoot(Bullet, _position, _direction):
-  var bullet_instance = Bullet.instance()
-  add_child(bullet_instance)
-  bullet_instance.start(_position, _direction)
+func player():
+  return $Player if has_node("Player") else null
+
+func _on_Player_explode(_explosion):
+  add_child(_explosion)
+
+func _on_Player_shoot(bullet):
+  add_child(bullet)
 
 func _on_Enemy_explode(_explosion):
   add_child(_explosion)
+
+func _on_Enemy_shoot(bullet):
+  add_child(bullet)

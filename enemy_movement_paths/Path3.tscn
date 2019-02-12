@@ -6,7 +6,7 @@
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1248.28, 582.861, 0, 0, -250.384, 32.442, 330.402, 703.771, 0, 0, 0, 0, 193.44, 571.432, 0, 0, 0, 0, 641, -68 )
+"points": PoolVector2Array( 0, 0, -1393.01, 281.389, 1261.78, 603.91, -673.625, 904.952, 0, 0, 540.038, -101.175 )
 }
 
 [node name="Path3" instance=ExtResource( 1 )]
@@ -14,6 +14,6 @@ _data = {
 curve = SubResource( 1 )
 should_rotate_object = true
 object_speed = 400
-objects_distance = 200
+objects_distance = 0
 
 

@@ -25,22 +25,24 @@ func spawn_enemies(_num_of_enemies = DEFAULT_NUM_OF_ENEMIES):
   current_enemy_class = _random_enemy_class()
   current_movement_path = _random_movement_path()
 
-  $SpawnTimer.set_wait_time(_spawn_interval())
+  _spawn_enemy()
 
+  $SpawnTimer.set_wait_time(_spawn_interval())
   $SpawnTimer.start()
 
 func _on_SpawnTimer_timeout():
-  _spawn_enemy()
-
   if spawned_enemies_count == num_of_enemies:
     spawned_enemies_count = 0
     $SpawnTimer.stop()
+  else:
+    _spawn_enemy()
 
 func _spawn_enemy():
   var enemy = current_enemy_class.instance()
 
-  enemy.init(current_movement_path, enemy_speed)
+  enemy.init(current_movement_path, enemy_speed, spawning_scene.player())
   enemy.connect("explode", spawning_scene, "_on_Enemy_explode")
+  enemy.connect("shoot", spawning_scene, "_on_Enemy_shoot")
   spawning_scene.add_child(enemy)
 
   spawned_enemies_count += 1

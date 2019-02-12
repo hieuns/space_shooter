@@ -1,21 +1,21 @@
 extends Area2D
 
-signal shoot(Bullet, _position, _direction)
+signal explode(_explosion)
+signal shoot(_bullet)
 
 const SPEED = 300
 
+var Explosion = preload("res://explosions/Explosion.tscn")
 var Bullet = preload("res://bullets/PlayerBullet.tscn")
+
 var screensize
-var can_shoot = true
+var is_gun_on_cooldown = false
+var is_dead = false
 
 func _ready():
-  # Called when the node is added to the scene for the first time.
-  # Initialization here
   screensize = get_viewport().size
 
 func _process(delta):
-  # Called every frame. Delta is time since last frame.
-  # Update game logic here.
   var velocity = Vector2()
 
   if Input.is_action_pressed("move_up"):
@@ -40,16 +40,32 @@ func setZIndex(z_index):
   $Sprite.z_index = z_index
 
 func shoot():
-  if can_shoot:
-    can_shoot = false
+  if !is_gun_on_cooldown:
+    is_gun_on_cooldown = true
     $ShootCooldown.start()
 
     var _direction = Vector2(0, -1)
-    emit_signal("shoot", Bullet, $FirePosition1.global_position, _direction)
-    emit_signal("shoot", Bullet, $FirePosition2.global_position, _direction)
+    var bullet1 = Bullet.instance()
+    var bullet2 = Bullet.instance()
+
+    bullet1.start($FirePosition1.global_position, _direction)
+    bullet2.start($FirePosition2.global_position, _direction)
+    emit_signal("shoot", bullet1)
+    emit_signal("shoot", bullet2)
+
+func explode():
+  is_dead = true
+  $Sprite.hide()
+  _show_explosion()
+  queue_free()
+
+func _show_explosion():
+  var explosion = Explosion.instance()
+  explosion.init(position)
+  emit_signal("explode", explosion)
 
 func _on_ShootCooldown_timeout():
-  can_shoot = true
+  is_gun_on_cooldown = false
 
 func _on_Player_area_entered(area):
-  queue_free()
+  explode()

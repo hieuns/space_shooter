@@ -15,13 +15,26 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-deg_sprite_rotation = 90
+desire_rotation_degrees = 90
+can_shoot = false
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
+
+z_index = 1
+_sections_unfolded = [ "Z Index" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array(  )
+
+[node name="ShootCooldown" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_ShootCooldown_timeout"]
 
 

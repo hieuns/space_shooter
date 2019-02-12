@@ -8,7 +8,7 @@
 [ext_resource path="res://enemy_movement_paths/Path2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemy_movement_paths/Path3.tscn" type="PackedScene" id=7]
 
-[node name="TestScene" type="Node2D" index="0"]
+[node name="TestScene" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -25,6 +25,8 @@ script = ExtResource( 1 )
 [node name="Path2" parent="EnemyMovementPaths" index="1" instance=ExtResource( 6 )]
 
 [node name="Path3" parent="EnemyMovementPaths" index="2" instance=ExtResource( 7 )]
+
+[connection signal="explode" from="Player" to="." method="_on_Player_explode"]
 
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
 

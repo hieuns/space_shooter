@@ -1,8 +1,7 @@
 extends Area2D
 
 const SPEED = 600
-# original angle of bullet sprite: Vector2(0, -1)
-const ORIGINAL_ANGLE = deg2rad(-90)
+const SPRITE_ROTATION_DEGREES = -90
 
 var velocity = Vector2()
 
@@ -11,14 +10,14 @@ func _process(delta):
 
 func start(_position, _direction):
   position = _position
-  rotation = _direction.angle() - ORIGINAL_ANGLE
+  rotation = _direction.angle() - deg2rad(SPRITE_ROTATION_DEGREES)
   velocity = _direction * SPEED
 
 func _on_Visibility_screen_exited():
   queue_free()
 
 func _on_Bullet_area_entered(area):
-  if area.isDead:
+  if area.is_dead:
     return
 
   area.explode()
